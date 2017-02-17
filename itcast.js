@@ -273,8 +273,8 @@
 					node = i === 0 ? selem : selem.cloneNode(true);
 					ret.push(node);
 					// 在目标元素的第一子节点前 添加子节点
-					// telem.insertBefore(node, firstChild);
-					telem.insertBefore(node, telem.firstChild);
+					telem.insertBefore(node, firstChild);
+					// telem.insertBefore(node, telem.firstChild);
 				});
 			});
 			// 实现链式编程
