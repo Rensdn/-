@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jq中断链操作与恢复</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li><a>爱疯</a></li>
+			<li><a>爆炸</a></li>
+			<li><a>某米</a></li>
+			<li><a>某族</a></li>
+			<li></li>
+		</ul>
+	</div>
+	<script src="jquery.js"></script>	
+	<script>
+		// $('ul').css().addClass();
+		// $('ul').css().addClass().find('li').css().end().css().addClass().val().end();
+		var $that = $('<a>某为</a>');
+		var $this = $that.appendTo('div>ul>li:last');
+		console.log($this);
+		console.log($that);
+	</script>
+</body>
+</html>
