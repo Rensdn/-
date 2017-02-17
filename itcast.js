@@ -236,7 +236,7 @@
 			// 用该变量临时存储一下
 			var text;
 			// 是字符串类型，但不是html字符串
-			// 就认为是普通字符串
+			// 就认为是普通字符串 'p'
 			// 如果 source为普通字符串，就将其转换成文本节点，追加到目标DOM元素上
 			if(itcast.isString(source) && !itcast.isHTML(source)){
 				// 将source赋值给text保存起来
@@ -307,7 +307,9 @@
 			return this;
 		},
 		remove: function() {
-			return this.each(function() {
+			return this.each(function(elem) {
+				// this 就是 当前遍历到的 元素
+				// this === elem
 				this.parentNode.removeChild(this);
 			});
 		}
