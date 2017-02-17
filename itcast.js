@@ -205,7 +205,7 @@
 			// 缓存this指向的对象
 			var self = this,
 					node, // 临时存储要被追加的源节点
-					ret = []; 
+					ret = []; // 存储所有被追加的节点
 			// 统一类型
 			target = itcast(target);
 
@@ -216,11 +216,12 @@
 					// 如果i === 0，表示当前telem为第一个目标元素，不需要拷贝源节点selem
 					// 否则要拷贝。
 					// 将上面得到源节点，追加到目标元素上，telem
-					node = selem;
+					node = i === 0 ? selem : selem.cloneNode(true);
+					/*node = selem;
 					if( i > 0){
 						node = selem.cloneNode(true);
 						// ret.push(node);
-					}
+					}*/
 					ret.push(node);
 					telem.appendChild(node);
 				});
