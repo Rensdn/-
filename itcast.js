@@ -256,6 +256,28 @@
 			source.appendTo(this);
 			// 实现链式编程
 			return this;
+		},
+		prependTo: function(target) {
+			var firstChild, // 缓存目标元素的第一个子节点
+					self = this,
+					node,
+					ret = [];
+			// 统一target类型为itcast对象
+			target = itcast(target);
+			// 遍历target
+			target.each(function(telem, i) {
+				// 缓存目标元素的第一个子节点
+				firstChild = telem.firstChild;
+				// 遍历self上所有源节点
+				self.each(function(selem) {
+					node = i === 0 ? selem : selem.cloneNode(true);
+					ret.push(node);
+					// 在目标元素的第一子节点前 添加子节点
+					telem.insertBefore(node, firstChild);
+				});
+			});
+			// 实现链式编程
+			return itcast(ret);
 		}
 	});
 
