@@ -199,11 +199,39 @@
 		}
 	});
 
+	// DOM操作模块
 	itcast.fn.extend({
-		addClass: function() {
-			console.log('addClass');
+		appendTo: function(target) {
+			// 缓存this指向的对象
+			var self = this,
+					node, // 临时存储要被追加的源节点
+					ret = []; 
+			// 统一类型
+			target = itcast(target);
+
+			// 遍历target
+			target.each(function(telem, i) {
+				// 遍历源节点
+				self.each(function(selem) {
+					// 如果i === 0，表示当前telem为第一个目标元素，不需要拷贝源节点selem
+					// 否则要拷贝。
+					// 将上面得到源节点，追加到目标元素上，telem
+					node = selem;
+					if( i > 0){
+						node = selem.cloneNode(true);
+						// ret.push(node);
+					}
+					ret.push(node);
+					telem.appendChild(node);
+				});
+			});
+			// 实现链式编程
+			// arr.push.apply(this, ret);
+			// return this;
+			return itcast(ret);
 		}
 	});
+
 	// 选择器引擎
 	// 通过select函数 来查询dom元素
 	var select = function(selector, context) {

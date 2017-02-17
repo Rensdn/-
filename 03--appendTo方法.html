@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>appendTo方法</title>
+</head>
+<body>
+	<div></div>
+	<p id="pp"></p>
+	<p></p>
+	<div></div>
+	<!-- <script src="jquery.js"></script> -->
+	<script src="itcast.js"></script>
+	<script>
+		// target 为选择器类型
+		// $('<p>123</p>').appendTo('div');
+		// // dom元素
+		// $('<a>123</a>').appendTo(document.getElementById('pp'));
+		// DOM数组 伪数组
+		var $i = $('<a>aaa</a>').appendTo(document.querySelectorAll('div,p'));
+		// $('<a>aaa</a>').appendTo(null);
+		// $('<a>aaa</a>').appendTo(undefined);
+		console.log($i);
+	</script>
+</body>
+</html>
