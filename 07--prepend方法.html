@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>prepend方法</title>
+</head>
+<body>
+	<div><p>111</p></div>
+	<div><p>222</p></div>
+	<a href="javascript:void(0)">000</a>
+	<a href="javascript:void(0)" id="aa">QQQ</a>
+	<!-- <script src="jquery.js"></script> -->
+	<script src="itcast.js"></script>
+	<script>
+		// $('div').prepend('a');
+		$('div').prepend('<a href="javascript:void(0)">JJJ</a><a href="javascript:void(0)">KKK</a>');
+		// $('div').prepend(document.getElementById('aa'));		
+		// var s = document.getElementsByTagName('a');
+		// $('div').prepend(document.getElementsByTagName('a'));		
+	</script>
+</body>
+</html>

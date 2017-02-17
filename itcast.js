@@ -280,6 +280,32 @@
 			// 实现链式编程
 			return itcast(ret);
 		},
+		prepend: function(source) {
+			// 如果source为普通字符串类型
+			// 用该变量临时存储一下
+			var text;
+			// 是字符串类型，但不是html字符串
+			// 就认为是普通字符串
+			// 如果 source为普通字符串，就将其转换成文本节点，追加到目标DOM元素上
+			if(itcast.isString(source) && !itcast.isHTML(source)){
+				// 将source赋值给text保存起来
+				text = source;
+				// 将source赋值为 itcast对象（空）
+				// 统一source类型， 为itcast对象
+				source = itcast();
+				// 把字符串转换文本节点并且 存储在 source上
+				source[0] = document.createTextNode(text);
+				// 同时设置其伪数组长度为1
+				source.length = 1;
+			} else {
+				// 将其他source类型统一为itcast对象
+				source = itcast(source);
+			}
+			// 使用已封装好的appendTo方法，将source上的元素追加到 this目标元素上
+			source.prependTo(this);
+			// 实现链式编程
+			return this;
+		},
 		remove: function() {
 			return this.each(function() {
 				this.parentNode.removeChild(this);
